@@ -1,0 +1,20 @@
+               barre de menu pour wm leger
+# URL: http://google.com/p/tint2
+# Maintainer: Gilberto Xyhthyx <xyhthyx at gmail dot com>
+# Packager: François Perrin
+# Depends on: cmake xorg-libxrandr xorg-libxinerama xorg-libxdamage xorg-libxcomposite pango imlib2 cairo
+
+name=tint2
+version=0.11
+
+source=(http://tint2.googlecode.com/files/$name-$version.tar.bz2)
+
+build() {
+cd $name-$version
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr ../
+make
+make DESTDIR=$PKG install
+rm -r $PKG/usr/share/doc
+}
