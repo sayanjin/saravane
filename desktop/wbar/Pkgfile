@@ -1,0 +1,20 @@
+# Depends on: libglade imlib2
+
+name=wbar
+version=2.3.4
+release=1
+
+source=(https://wbar.googlecode.com/files/wbar-$version.tgz )
+
+build() {
+        cd $name-$version
+
+        ./configure --prefix=/usr \
+                --exec_prefix=/usr \
+                --sysconfdir=/etc
+        make
+        make DESTDIR=$PKG install
+}
+
+    Status API Training Shop Blog About Help 
+
